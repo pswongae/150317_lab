@@ -120,7 +120,7 @@ public class Blog implements Serializable{
 			FileOutputStream fs = new FileOutputStream(filepath);
 			ObjectOutputStream os = new ObjectOutputStream(fs);
 			os.writeObject(this);
-			os.close();			
+			os.close();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -134,6 +134,7 @@ public class Blog implements Serializable{
 			Blog blog = (Blog) os.readObject();
 			setUser(blog.getUser());
 			setPosts(blog.getPosts());
+			os.close();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			if (e.getClass().isInstance(new FileNotFoundException())){
